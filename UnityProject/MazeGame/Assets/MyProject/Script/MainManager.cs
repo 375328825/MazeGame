@@ -7,11 +7,13 @@ public class MainManager : MonoBehaviour {
     public Image mask;
     public GameObject[] scenes;
 
-    private static MainManager instance;
+    protected static MainManager instance;
     private int openSceneIndex = 0;
 
     private GameObject hotItem;
     private GameObject[] bags=new GameObject[8];
+
+    private BlackMask blackMask;
     void Awake()
     {
         if(instance == null)
@@ -22,7 +24,8 @@ public class MainManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        blackMask = BlackMask.Instance;
+        mask.color = new Color(0, 0, 0, 0);
     }
 	
 	// Update is called once per frame
@@ -55,41 +58,53 @@ public class MainManager : MonoBehaviour {
     }
 
 
+    private bool isLeft = false;
 
-
-
-
-    private bool isChanging = false;
     public void ChangeScene(bool left)
     {
-        if(!isChanging)
-            StartCoroutine(ChangeSceneIenum(left));
+        bool baseScene = scenes[openSceneIndex].GetComponent<BaseSceneTest>().baseScene;
+        if (!baseScene)
+        {
+            scenes[openSceneIndex].GetComponent<BaseSceneTest>().GoBack();
+            return;
+        }
 
+
+        isLeft = left;
+        blackMask.ChangeScene("MainManagerCallBack",gameObject,0.25f);
     }
-
-
-
-    IEnumerator ChangeSceneIenum(bool leftChange)
+    public void MainManagerCallBack()
     {
-        isChanging = true;
-        for (float t = 0; t < 0.5f; t += Time.deltaTime)
-        {
-            mask.color = new Color(0, 0, 0, t * 2);
-            yield return 0;
-
-        }
-        ChangeBlack(leftChange);
-
-        for (float t = 0.6f; t > 0; t -= Time.deltaTime)
-        {
-            mask.color = new Color(0, 0, 0, t * 2);
-            yield return 0;
-
-        }
-        isChanging = false;
-
-
+       
+        ChangeBlack(isLeft);
+        
     }
+
+    
+
+
+
+    //IEnumerator ChangeSceneIenum(bool leftChange)
+    //{
+    //    isChanging = true;
+    //    for (float t = 0; t < 0.5f; t += Time.deltaTime)
+    //    {
+    //        mask.color = new Color(0, 0, 0, t * 2);
+    //        yield return 0;
+
+    //    }
+    //    ChangeBlack(leftChange);
+
+    //    for (float t = 0.6f; t > 0; t -= Time.deltaTime)
+    //    {
+    //        mask.color = new Color(0, 0, 0, t * 2);
+    //        yield return 0;
+
+    //    }
+    //    isChanging = false;
+
+
+    //}
 
 
     private void ChangeBlack(bool leftChange)
@@ -109,7 +124,7 @@ public class MainManager : MonoBehaviour {
           //  scenes[openSceneIndex].SetActive(true);
 
         }
-        Debug.Log("complete");
+        //Debug.Log("complete");
     }
     private void OpenScene(int index)
     {

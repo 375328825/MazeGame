@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonEvent : MonoBehaviour {
-    public MainManager mainManager;
+    private MainManager mainManager;
 	// Use this for initialization
 	void Start () {
         mainManager = MainManager.Instance;

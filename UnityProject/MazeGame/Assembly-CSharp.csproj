@@ -54,9 +54,15 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\MyProject\CameraCtr.cs" />
+     <Compile Include="Assets\MyProject\Script\ButtonEvent.cs" />
      <Compile Include="Assets\MyProject\Script\MainManager.cs" />
      <Compile Include="Assets\MyProject\Script\scene 1\Curtain.cs" />
      <Compile Include="Assets\MyProject\Script\scene 2\CupboardDrawer.cs" />
+     <Compile Include="Assets\MyProject\Script\scene 3\SafeClose.cs" />
+     <Compile Include="Assets\MyProject\Script\scene 3\SafeCtr.cs" />
+     <Compile Include="Assets\MyProject\Script\scene 3\SafeText.cs" />
+     <Compile Include="Assets\MyProject\Script\scene 3\TvCabinetCtr.cs" />
+     <Compile Include="Assets\MyProject\Script\scene 3\TvCabinetDoor.cs" />
      <Compile Include="Assets\MyProject\Script\scene 4\PianoKeyboard.cs" />
      <Compile Include="Assets\MyProject\Script\TouchManager.cs" />
      <Compile Include="Assets\Test.cs" />

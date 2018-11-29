@@ -13,7 +13,7 @@ public class Test : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-
+        GetComponent<Text>().text = Screen.width.ToString() + "*" + Screen.height.ToString();
 	}
 	
 	// Update is called once per frame

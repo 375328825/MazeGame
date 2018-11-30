@@ -61,6 +61,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CoinPusher\Scripts\Coin.cs" />
+    <Compile Include="Assets\CoinPusher\Scripts\CoinCoilder.cs" />
+    <Compile Include="Assets\CoinPusher\Scripts\CoinFAther.cs" />
     <Compile Include="Assets\MyProject\CameraCtr.cs" />
     <Compile Include="Assets\MyProject\Script\BaseSceneTest.cs" />
     <Compile Include="Assets\MyProject\Script\BlackMask.cs" />

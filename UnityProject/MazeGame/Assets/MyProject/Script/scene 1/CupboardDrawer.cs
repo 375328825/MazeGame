@@ -17,7 +17,14 @@ public class CupboardDrawer : TouchManager
         startPos = rectTran.anchoredPosition;
 
 	}
-	
+	void OnEnable()
+    {
+        if (startPos != Vector2.zero)
+        {
+            open = false;
+            rectTran.anchoredPosition = startPos;
+        }
+    }
 	// Update is called once per frame
 	void Update () {
         if (open)

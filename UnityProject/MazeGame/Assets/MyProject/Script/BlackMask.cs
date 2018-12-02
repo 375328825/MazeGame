@@ -10,14 +10,17 @@ public class BlackMask : MonoBehaviour {
     private Image mask;
 
  
-
-    
-    // Use this for initialization
-    void Start () {
+    void Awake()
+    {
         if (instant == null)
         {
             instant = this;
         }
+    }
+    
+    // Use this for initialization
+    void Start () {
+     
         //  CallBack();
         mask = GetComponent<Image>();
     }

@@ -51,7 +51,20 @@ public class CoinFAther : MonoBehaviour
             Invoke("InstantCoin", 0.3f);
         }
     }
+    public void Shoot()
+    {
+        if (coin == null)
+        {
+            return;
+        }
 
+        coin.GetComponent<Rigidbody>().isKinematic = false;
+
+        coin.GetComponent<Rigidbody>().velocity = transform.forward * 9;
+        coin.transform.parent = null;
+        coin = null;
+        Invoke("InstantCoin", 0.3f);
+    }
     public void InstantCoin()
     {
         coin = GameObject.Instantiate(coinPrefab, transform.position, coinPrefab.transform.rotation, transform);

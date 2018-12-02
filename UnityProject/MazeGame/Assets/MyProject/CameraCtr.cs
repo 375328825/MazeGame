@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraCtr : MonoBehaviour {
     void Awake()
     {
-        Screen.SetResolution(1920, 1080, false);
+      //  Screen.SetResolution(1920, 1080, false);
     }
   //  public Camera mainCamera;
     // Use this for initialization

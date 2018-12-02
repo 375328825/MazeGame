@@ -21,7 +21,7 @@ public class MainManager : MonoBehaviour {
             instance = this;
         }
     }
-
+    public GameObject HotItem { get { return hotItem; } }
 	// Use this for initialization
 	void Start () {
         blackMask = BlackMask.Instance;

@@ -23,9 +23,12 @@ public class ZombleCtr : MonoBehaviour {
         {
             transform.position += Vector3.left * Time.deltaTime* speed;
         }
-
+        if (transform.position.x < -19)
+        {
+            Destroy(gameObject);
+        }
 	}
 
-
+    
 
 }

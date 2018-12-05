@@ -217,10 +217,10 @@ GameObject:
   - component: {fileID: 4877529575176100}
   - component: {fileID: 111245714161957314}
   - component: {fileID: 114536805313437888}
-  - component: {fileID: 61339344477860642}
+  - component: {fileID: 65099190546737712}
   m_Layer: 0
   m_Name: urban_zombie1
-  m_TagString: Untagged
+  m_TagString: zomble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -557,7 +557,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1714126056344366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.72, y: -0.65, z: 5}
+  m_LocalPosition: {x: 5.5060225, y: -0.65, z: 5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4772933682262048}
@@ -565,31 +565,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61339344477860642
-BoxCollider2D:
+--- !u!65 &65099190546737712
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1714126056344366}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_IsTrigger: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.79, y: 1.52, z: 1}
+  m_Center: {x: -0.09, y: 0.7, z: 0}
 --- !u!111 &111245714161957314
 Animation:
   m_ObjectHideFlags: 1
@@ -649,8 +636,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkAnim: zb_walk2_fast
-  deadAnim: zb_dead2_face
+  deadAnim: zb_dead2_facehurt
   speed: 0.3
+  healthNum: 1
+  maxHealth: 3
+  minHealth: 1
 --- !u!137 &137236469406377236
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

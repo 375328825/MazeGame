@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CoinCoilder : MonoBehaviour {
     int score = 0;
+    public ZombleGameManager zombleGameManager;
 	// Use this for initialization
 	void Start () {
 		
@@ -15,7 +16,7 @@ public class CoinCoilder : MonoBehaviour {
 	}
     private void OnTriggerEnter(Collider other)
     {
-        score++;
+        zombleGameManager.bulletNum += 20;
     }
     public void Reset()
     {

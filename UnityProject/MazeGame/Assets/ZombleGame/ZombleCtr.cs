@@ -9,24 +9,46 @@ public class ZombleCtr : MonoBehaviour {
     public float speed = 1f;
     private Animation anim;
 
-    private int healthNum = 10;
+    public int healthNum = 10;
+    public int maxHealth = 20;
+    public int minHealth = 1;
+
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animation>();
         anim.Play(walkAnim);
+        healthNum = Random.Range(minHealth, maxHealth);
     }
-	
+    private bool dead=false;
+    float timer = 2;
 	// Update is called once per frame
 	void Update () {
 
         if (healthNum > 0)
         {
-            transform.position += Vector3.left * Time.deltaTime* speed;
+            transform.position += Vector3.left * Time.deltaTime * speed;
         }
-        if (transform.position.x < -19)
+        else
+        {
+            if (!dead)
+            {
+                dead = true;
+                anim.Play(deadAnim);
+            }
+            else
+            {
+                timer -= Time.deltaTime;
+                if (timer < 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
+        if (transform.localPosition.x < -19)
         {
             Destroy(gameObject);
         }
+     
 	}
 
     

@@ -12,11 +12,16 @@ public class PianoKeyboard : TouchManager {
 
     private Vector2 idlePos = Vector2.zero;
     private RectTransform keyRectTransform;
+    public AudioClip audio;
+    private AudioManager audioManager;
+    private Scene4Manager scene4Manager;
 	// Use this for initialization
 	void Start () {
         keyRectTransform = key.GetComponent<RectTransform>();
         idlePos =keyRectTransform.anchoredPosition;
-	}
+        audioManager = AudioManager.Instance;
+        scene4Manager = Scene4Manager.Instance;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -33,14 +38,16 @@ public class PianoKeyboard : TouchManager {
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("down");
+       // Debug.Log("down");
         isDown = true;
+        audioManager.PlayOneShot(audio);
+        scene4Manager.CheckTone(audio);
    //     this.GetComponent<RectTransform>().anchoredPosition += Vector2.down * 45;
     }
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("up");
+       // Debug.Log("up");
         isDown = false ;
     }
 }

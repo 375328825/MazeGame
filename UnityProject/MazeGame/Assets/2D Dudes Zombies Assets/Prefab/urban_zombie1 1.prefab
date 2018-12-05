@@ -262,9 +262,10 @@ GameObject:
   - component: {fileID: 4961726620698378}
   - component: {fileID: 111778467032188582}
   - component: {fileID: 114648141259765486}
+  - component: {fileID: 65903695889187422}
   m_Layer: 0
   m_Name: urban_zombie1 1
-  m_TagString: Untagged
+  m_TagString: zomble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -556,7 +557,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890223847973092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.99590206, y: 1.2, z: 5}
+  m_LocalPosition: {x: 3.16, y: -1.59, z: 5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4517716325232146}
@@ -564,6 +565,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65903695889187422
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1890223847973092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.79, y: 1.52, z: 1}
+  m_Center: {x: -0.09, y: 0.7, z: 0}
 --- !u!111 &111778467032188582
 Animation:
   m_ObjectHideFlags: 1
@@ -625,6 +638,9 @@ MonoBehaviour:
   walkAnim: zb_walk1
   deadAnim: zb_dead1
   speed: 0.2
+  healthNum: 10
+  maxHealth: 8
+  minHealth: 3
 --- !u!137 &137954083139299762
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -7,6 +7,7 @@ public class TvManager : MonoBehaviour {
     public Image black;
     public GameObject[] Channels;
 
+    public GameObject zombleGameObj;
     public GameObject CoinGameObj;
     private bool open = false;
     private int channelIndex = 0;
@@ -19,11 +20,13 @@ public class TvManager : MonoBehaviour {
         black.color = new Color(0, 0, 0, 1);
         open = false;
         CoinGameObj.SetActive(true);
-
+        zombleGameObj.SetActive(true);
     }
     void OnDisable()
     {
-      //  CoinGameObj.SetActive(false);
+        CoinGameObj.SetActive(false);
+        zombleGameObj.SetActive(false);
+
     }
     // Update is called once per frame
     void Update () {
@@ -109,11 +112,13 @@ public class TvManager : MonoBehaviour {
             yield return 0;
         }
         black.color = new Color(0, 0, 0, 0);
-
+        black.gameObject.SetActive(false);
     }
     private IEnumerator Close(float time)
     {
-        for(float i = 0; i <= 1; i += Time.deltaTime*time)
+        black.gameObject.SetActive(true);
+
+        for (float i = 0; i <= 1; i += Time.deltaTime*time)
         {
             black.color = new Color(0, 0, 0, i);
             yield return 0;

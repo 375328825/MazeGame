@@ -2,30 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scene2manager : MonoBehaviour {
+public class Scene2manager : MonoBehaviour
+{
     public GameObject cameraView;
-
+    public GameObject food;
+    public GameObject shit;
+    public GameObject shitButton;
     private BlackMask blackMask;
     private MainManager mainManager;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         blackMask = BlackMask.Instance;
         mainManager = MainManager.Instance;
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
     public void OpenCamera()
     {
-        // if (mainManager.HotItem.name == "Camera")
-        // {
-        blackMask.ChangeScene("OpenCameraCallBack", gameObject, 0.16f);
-        
+        if (mainManager.HotItem == null)
+            return;
+        if (mainManager.HotItem.name == "camera")
+        {
+            blackMask.ChangeScene("OpenCameraCallBack", gameObject, 0.16f);
 
-        //}
+
+        }
     }
     public void OpenCameraCallBack()
     {
@@ -45,5 +52,36 @@ public class Scene2manager : MonoBehaviour {
         GetComponent<BaseSceneTest>().baseScene = true;
 
 
+    }
+    public void AddFood()
+    {
+        if (mainManager.HotItem == null)
+        {
+            return;
+        }
+        if (mainManager.HotItem.name == "food")
+        {
+            food.SetActive(true);
+        }
+    }
+    public GameObject birdButton;
+    public void EatFood()
+    {
+        if (food.activeSelf == true)
+        {
+            shit.SetActive(true);
+            birdButton.SetActive(false);
+        }
+    }
+
+    public void OpenShitButton()
+    {
+        shitButton.SetActive(true);
+    }
+    public void GetShit()
+    {
+
+        shit.SetActive(false);
+        mainManager.zhongzi.SetActive(true);
     }
 }

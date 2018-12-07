@@ -34,7 +34,7 @@ public class CameraTouchBOard : TouchManager {
     {
         touchPoint.GetComponent<RectTransform>().anchoredPosition = eventData.position;
 
-        Debug.Log(eventData.position);
+
         if (eventData.position.x > 800)
         {
             if (!changing && !isNear)

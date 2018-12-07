@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Scene3Manager : MonoBehaviour {
     public GameObject tv;
+    public GameObject blackManButton;
     private MainManager mainManager;
     private BlackMask blackMask;
     protected static Scene3Manager instance;
@@ -51,5 +52,10 @@ public class Scene3Manager : MonoBehaviour {
         tv.SetActive(false);
         GetComponent<BaseSceneTest>().baseScene = true;
 
+    }
+    public void GetBlackMan()
+    {
+        mainManager.blackMan.SetActive(true);
+        blackManButton.SetActive(false);
     }
 }

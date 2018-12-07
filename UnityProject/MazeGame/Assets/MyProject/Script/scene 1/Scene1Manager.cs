@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Scene1Manager : MonoBehaviour {
     public GameObject cupboard;
+    public GameObject food;
     protected static Scene1Manager instance;
     private BlackMask blackMask;
     private BaseSceneTest baseSceneTest;
+    private MainManager mainManager;
+    public GameObject abai;
+    public GameObject WhiteMan;
+   public bool abaiUp = false;
     private void Awake()
     {
         if (instance == null)
@@ -17,8 +22,8 @@ public class Scene1Manager : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-      
-        blackMask = BlackMask.Instance;
+        mainManager = MainManager.Instance;
+          blackMask = BlackMask.Instance;
         baseSceneTest = GetComponent<BaseSceneTest>();
     }
     public static Scene1Manager Instance
@@ -27,7 +32,14 @@ public class Scene1Manager : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-		
+        if (abaiUp)
+        {
+            abai.GetComponent<RectTransform>().anchoredPosition += Vector2.up * Time.deltaTime*25;
+            if(abai.GetComponent<RectTransform>().anchoredPosition.y> -291)
+            {
+                abaiUp = false;
+            }
+        }
 	}
 
     public void OpenCupBoard()
@@ -54,5 +66,29 @@ public class Scene1Manager : MonoBehaviour {
     public void GoBackCallBack()
     {
         
+    }
+    public void GetFood()
+    {
+        food.SetActive(false);
+        mainManager.food.SetActive(true);
+    }
+    public void PushZhongzi()
+    {
+        if (mainManager.HotItem == null)
+        {
+            return;
+        }
+        if (mainManager.HotItem.name == "zhongzi")
+        {
+            mainManager.HotItem.SetActive(false);
+            abaiUp = true;
+        }
+
+    }
+
+   public void GetWhite()
+    {
+        WhiteMan.SetActive(false);
+        mainManager.whiteMan.SetActive(true);
     }
 }

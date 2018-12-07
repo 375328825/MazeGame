@@ -13,8 +13,10 @@ public class ZombleCtr : MonoBehaviour {
     public int maxHealth = 20;
     public int minHealth = 1;
 
+    private ZombleGameManager manager;
 	// Use this for initialization
 	void Start () {
+        manager = ZombleGameManager.Instance;
         anim = GetComponent<Animation>();
         anim.Play(walkAnim);
         healthNum = Random.Range(minHealth, maxHealth);
@@ -27,6 +29,10 @@ public class ZombleCtr : MonoBehaviour {
         if (healthNum > 0)
         {
             transform.position += Vector3.left * Time.deltaTime * speed;
+            if (manager.win)
+            {
+                healthNum = -1;
+            }
         }
         else
         {
@@ -34,6 +40,15 @@ public class ZombleCtr : MonoBehaviour {
             {
                 dead = true;
                 anim.Play(deadAnim);
+                if (manager.getCamera&&!manager.win)
+                {
+                    int ran = Random.Range(0, 10);
+                    Debug.Log("win" + ran);
+                    if (ran < 2)
+                    {
+                        manager.Win(gameObject);
+                    }
+                }
             }
             else
             {

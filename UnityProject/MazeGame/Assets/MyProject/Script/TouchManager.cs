@@ -16,7 +16,10 @@ public class TouchManager : MonoBehaviour,IPointerClickHandler,IPointerDownHandl
 
     }
 
-
+    public virtual void OnPointerEnter(PointerEventData eventData)
+    {
+       // throw new NotImplementedException();
+    }
 
     public virtual void OnPointerUp(PointerEventData eventData)
     {

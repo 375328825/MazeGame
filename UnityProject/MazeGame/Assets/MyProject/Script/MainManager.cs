@@ -7,11 +7,19 @@ public class MainManager : MonoBehaviour {
     public Image mask;
     public GameObject[] scenes;
 
+    public GameObject food;
+    public GameObject zhongzi;
+    public GameObject cameraUi;
+    public GameObject blackMan;
+    public GameObject whiteMan;
+    public GameObject pianoPaper;
+
+  //  public GameObject[] bagItemPoses;
     protected static MainManager instance;
     private int openSceneIndex = 0;
 
     private GameObject hotItem;
-    private GameObject[] bags=new GameObject[8];
+    public GameObject[] bags=new GameObject[8];
 
     private BlackMask blackMask;
     void Awake()
@@ -47,16 +55,31 @@ public class MainManager : MonoBehaviour {
     }
     public void AddItem(GameObject item)
     {
-        for(int i = 0; i < bags.Length; i++)
+      
+    }
+    public void ChangeHotItem(int s)
+    {
+        Debug.Log(s);
+        if (bags[s].activeSelf)
         {
-            if (bags[i] == null)
+            for(int i = 0; i < bags.Length; i++)
             {
-                bags[i] = item;
-                return;
+                if (i == s)
+                {
+                    bags[i].GetComponent<ItenCtr>().BeHot();
+                    hotItem = bags[i];
+                    Debug.Log(hotItem.name);
+                }
+                else
+                {
+                    if (bags[i].activeSelf)
+                    {
+                        bags[i].GetComponent<ItenCtr>().BeCold();
+                    }
+                }
             }
         }
     }
-
 
     private bool isLeft = false;
 

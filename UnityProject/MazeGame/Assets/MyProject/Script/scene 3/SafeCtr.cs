@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class SafeCtr : MonoBehaviour {
-    public string password = "1234";
+    private string password = "0518";
     public GameObject open;
     public GameObject close;
     public Text[] texts;
